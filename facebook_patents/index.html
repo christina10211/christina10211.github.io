@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+      
+    <!-- Your CSS files -->
+    <link rel="stylesheet" href="style/app.css">
+    
+    <!-- google fonts: Roboto Condensed(super-font) and Lora(sub-font) -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet"> 
+  
+      
+      
+    <title>Christina Zhang's Data Studio Projects</title>
+  </head>
+    
+  <body class="light-theme">
+    <div class="container"><!-- start of the main container-->
+        <div class="row justify-content-center"><!-- headline and intro -->
+            <div class="col-lg-10 ">
+                <p class="kicker super-font">Technology</p>
+                <h1 class="headline super-font">Facebook: Move Fast and Patent Things</h1>
+                <p class="credit super-font">BY Christina Zhang</p>
+                <p class="date sub-font">Published August 7, 2018</p>
+                <p class="body-text sub-font">
+                Patents are the new gold for the tech industry, thus an invisible battlefield among the tech giants such as Amazon, Facebook,and Google. However, patents are usually in the shadow and neglected by the public because few people have the interest and time to go over all the patent files full of jargons and sci-fi-type-of-vocabularies. I believe that patents can say a lot about a company, especially its shifting business priorities over time. 
+
+                <p class="body-text sub-font">I got my data from two sources, justia.com and Google Patents, and built a dataset of 3059 Facebook Patents filed from 2001 to 2018. All the year/date are file dates, instead of grant date. 
+                <p class="body-text sub-font">I got my data from two sources, justia.com and Google Patents, and built a dataset of 3059 Facebook Patents filed from 2001 to 2018. All the year/date are file dates, instead of grant date. I approached this dataset with two analysis:
+
+                <ul class="body-text sub-font">
+                <li>Text analysis on Facebook patents'title and abstracts, breaking down by year. I used tf-idf to filter out top 20 keywords and keyphrases(noun phrases) for each year.</li>
+                <li>Classification analysis. I scraped the classifications of those patents from Google Patent and did a catatory breakdown. </li>
+                </p>
+            </div>
+        </div>
+        
+<!-- start of one size B image -->
+    <div class="row justify-content-center"> <!-- labels/deszcriptions and three charts for mobile -->
+            <div class="col-md-10"><!-- left -->
+                <p class="label super-font">Number of Patents</p>
+                <p class="label-text super-font">Patent quantity surged along with aggresive acquisition and rapid growth</p>
+                <img class="image" src="style/images/num_patents.png" alt="number_of_patents">
+                <p class="note sub-font">NOTE: Although Facebook bought over 1000 patents from AOL and IBM in 2012, the quantity are spread out over the years since these patents have differnet file dates.<br>
+                SOURCE: Google Patents
+                </p>
+            </div>
+        </div>
+<!-- end of one size B image -->
+
+
+
+<div class="row justify-content-center"><!-- headline and intro -->
+            <div class="col-lg-10 ">
+                <p class="subhead super-font">Keyphrase Analysis of Patent Titles and Abstracts</p>
+                <p class="body-text sub-font">
+                Based on a tf-idf (term frequency-inverse document frequency) analysis, I got to see the top 10 keyphrase in Facebook's patents by each year. 
+            </div>
+        </div>     
+<!-- start of one size B image -->
+    <div class="row justify-content-center"> <!-- labels/deszcriptions and three charts for mobile -->
+            <div class="col-md-10"><!-- left -->
+                <p class="label super-font">Facebook Timeline and Keyphrase Analysis</p>
+                <!-- <p class="label-text super-font">Patent quantity surged along with aggresive acquisition and rapid growth</p> -->
+                <img class="image" src="style/images/keywords_colored_combo.png" alt="keyphrase">
+                <p class="note sub-font">
+                SOURCE: Google Patents
+                </p>
+            </div>
+        </div>
+<!-- end of one size B image -->
+        
+        
+
+
+<div class="row justify-content-center"><!-- headline and intro -->
+        <div class="col-lg-10 ">
+            <p class="subhead super-font">Patent Classifications Breakdown</p>
+                <p class="body-text sub-font">
+                 Facebook patents are classified differently under different system. Based on the Cooperative Patent Classification (CPC) system, each patent has a classification combination of letters and number, each with different meaning. The first uppercase letter is the main catagory, and the letter number combinations after is the sub catagory, which getting more detailed with the addition of another letter or number combination. The classification analysis conducted in this project is focused on main class and the first sub-catagory (the second most general classification). Among all 3059 patents filed/owned by Facebook in this dataset, there are 1624 Physics and 1192 Electricity patents.
+                     </div>
+        </div>
+
+<!-- start of one size B image -->
+    <div class="row justify-content-center"> <!-- labels/deszcriptions and three charts for mobile -->
+            <div class="col-md-10"><!-- left -->
+                <p class="label super-font">Main Classifications</p>
+                <p class="label-text super-font">Physics and Electricity patents dominate, but there's more.</p>
+                <img class="image" src="style/images/main_class_main_class.png" alt="main_class">
+                <p class="note sub-font"><!-- NOTE: an optional note or source can go here. <br> -->
+                SOURCE: Google Patents
+                </p>
+            </div>
+        </div>
+<!-- end of one size B image -->
+
+<!-- start of 2 charts side by side -->
+        <div class="row justify-content-center"> <!-- labels/deszcriptions and three charts for mobile -->
+            <div class="col-md-5 "><!-- left -->
+                <!-- <p class="label super-font">Left chart label</p> -->
+                <!-- <p class="label-text super-font">Chart descriptiona liquet. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor. </p> -->
+                <img class="image d-md-none" src="style/images/electricity_physics_Electricity.png" alt="electrity">
+
+            </div>
+
+            <div class="col-md-5 "><!-- right -->
+                <!-- <p class="label super-font">Right chart label</p>
+                <p class="label-text super-font">Chart description   velit aliquet.</p> -->
+                <img class="image  d-md-none" src="style/images/electricity_physics_Physics.png" alt="Physics">
+
+            </div>
+        
+        </div>
+        <!-- these are the image files repeated fror desktop sizes -->
+        <div class="d-none d-md-block">
+            <div class="row justify-content-center "> 
+                <div class="col-md-5 "><!-- left -->
+                    <img class="image" src="style/images/electricity_physics_Electricity.png" alt="image description">
+                </div>
+                <div class="col-md-5 "><!-- right -->
+                    <img class="image" src="style/images/electricity_physics_Physics.png" alt="image description">
+                    
+                </div>
+            </div>
+        </div>
+
+<!-- end of 2 charts side by side -->   
+
+<div class="row justify-content-center"><!-- headline and intro -->
+        <div class="col-lg-10 ">
+            <p class="subhead super-font">Facebook's Hidden Gems in R&D</p>
+                <p class="body-text sub-font">
+                 A sneak peak into Facebook patent sub catagories shows big ambition of Facebook disrupting different industries. Besides filing large number of patents in electric communications techniques and computing/calculating, which are the building blocks of its main social media platform, it tries to get its hand dirty in many other unexpected industries. From power generation, musical instruments, to signalling and optics.
+                      </div>
+        </div>         
+               
+
+<div class="row justify-content-center"> <!-- labels/deszcriptions and three charts for mobile -->
+            <div class="col-md-10"><!-- left -->
+                <p class="label super-font">Here's what Facebook is doing in the name of musical instruments: </p>
+                 <ul class="body-text sub-font">
+                <li>Detecting distorted audio signals based on audio fingerprinting</li>
+                <li>Generating a reference audio fingerprint for an audio signal associated with an event</li>
+                <li>Machine learning dialect identification</li>
+                <li>Speech translation with back-channeling cues</li>
+                <li>Managing silence in audio signal identification</li>
+                </ul> 
+                </p>
+            </div>
+        </div>
+        
+<div class="row justify-content-center"><!-- headline and intro -->
+            <div class="col-lg-10 ">
+                <p class="subhead super-font">Go back to my
+                 <a href = "https://christina10211.github.io/"> Homepage </a></p>
+            </div>
+        </div>
+
+
+       <!--  <div class="row justify-content-center"><!-- headline and intro -->
+           <!--  <div class="col-lg-10 ">
+                <p class="body-text sub-font">
+                Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo,<br>
+                tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+                </p>
+            </div>
+        </div> -->
+
+
+
+
+<!-- 
+<!-- start of one size C image -->
+
+
+        <!-- <div class="row justify-content-center"> 
+            <div class="col-md-10">
+                <p class="label super-font">Chart label</p>
+                <p class="label-text super-font">Labels for chart should usually go above the visualization.</p>
+            </div>
+            <img class="image" src="style/images/template_size_C.png" alt="image description">
+        </div>
+        
+        <div class="row justify-content-center"><!-- headline and intro -->
+            <!-- <div class="col-lg-10 ">
+                <p class="body-text sub-font">
+                Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo,<br>
+                tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+                </p>
+            </div>
+        </div>  -->
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- <div class="row justify-content-center"> 
+            <div class="col-12">
+                <img class="image" src="style/images/swimming.jpg" alt="image description">
+            </div>
+            <div class="col-md-10">
+                <p class="caption sub-font">Photo captions are typically below the image and end with the photographer's credit (Firstname Lastname/AGENCYNAME) Boys swim at a river mouth between the river Drim and Ohrid lake in the city of Struga, Macedonia (Ognen Teofilovski/REUTERS)</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center"><!-- headline and intro --> 
+        <!-- <div class="col-lg-10 ">
+            <p class="body-text sub-font">
+            Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo,<br>
+            tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+            </p> -->
+       <!--  </div>
+        <div class="row justify-content-center no-gutters"> 
+            <div class="col-md-5">
+                <img class="image" src="style/images/size_A_treemap.png" alt="size_A_treemap">
+                <p class="caption sub-font">Photo captions are typically below the image and end with the photographer's credit (Firstname Lastname/AGENCYNAME)</p>
+            </div>
+        </div> --> 
+    
+            
+            
+    
+        
+        
+        
+        
+        
+      </div><!-- end of the main container-->
+   
+        
+
+      
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>
