@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+      
+    <!-- Your CSS files -->
+    <link rel="stylesheet" href="style/app.css">
+    
+    <!-- google fonts: Roboto Condensed(super-font) and Lora(sub-font) -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet"> 
+  
+      
+      
+    <title>Christina Zhang's Data Studio Projects</title>
+  </head>
+    
+  <body class="beige-theme" >
+  
+
+    <div class="container"><!-- start of the main container-->
+        <div class="row justify-content-center"><!-- headline and intro -->
+            <div class="col-lg-10 ">
+                <p class="kicker super-font">Pop Culture</p>
+                <h1 class="headline super-font">Am I the Only One Who Confused Charlie Puth and Shawn Mendes?</h1>
+               <!--  <h3 class="subhead super-font">An Analysis on Word Choices,Audio Attributes and Lyrics Tone</h3> -->
+                <p class="credit super-font">BY Christina Zhang</p>
+                <p class="date sub-font">Published August 7, 2018</p>
+                <p class="body-text sub-font">
+                Rising pop kings.Talented songwriters.Gym buddies. These are just a few words to describe Charlie Puth and Shawn Mendes, who followed a similar path to gain their fame. Shawn Mendes released his first album <i>Handwritten</i> in 2015, followed by Charlie Puth, who made a debute with Nine Track Mind 8 months after. This year, both of them released their latest album in May, bringing people's attention back to an ongoing discussion: who is going to be the next king of pop, the next Justin Bieber? 
+
+                <p class="body-text sub-font">I love their music, and summer is such a nice timing for releasing upbeat pop jams. However to be honest, I've been struggling telling the difference between the two artists for a very long time. I once thought that it might be just the issue of pop music as a easily 'sound-alike' genre, but that's not a satisfied answer, obviously.
+
+                <p class="body-text sub-font">I decided to look into their past and latest albums, track by track, and compare the two artists' works from three aspects:
+
+                <ul class="body-text sub-font">
+                <li>Word choices and repetitiveness</li>
+                <li>Audio attributes, including danceability, loudness, energy, valence, and acousticness.</li>
+                <li>Tone(or Sentiment) of lyrics.
+            </li>
+                </p>
+            </div>
+        </div>
+
+
+<div class="row justify-content-center"><!-- headline and intro -->
+            <div class="col-lg-10 ">
+                <p class="subhead super-font">Diversity or Repetitiveness, a Word Choice Dilemma</p>
+                <!-- <p class="body-text sub-font"> -->
+                
+            </div>
+        </div>     
+<!-- start of one size B image -->
+    <div class="row justify-content-center"> <!-- labels/deszcriptions and three charts for mobile -->
+            <div class="col-md-10"><!-- left -->
+                <p class="label super-font">Most Repetitive Words</p>
+                <p class="label-text super-font">Both of them fell into the deep pop trap of ah-oh-baby and they LOVE repeating track name a million times</p>
+                <img class="image" src="style/images/size_c_words_rep_final-01.png" alt="word_choice">
+                <p class="note sub-font">
+                SOURCE: Lyricswikia,Spotify
+                </p>
+            </div>
+        </div>
+<!-- end of one size B image -->
+
+<div class="row justify-content-center"><!-- headline and intro -->
+            <div class="col-lg-10 ">
+               
+                <p class="body-text sub-font">
+                    Based on tfidf (term frequency inverse document frequency) analysis of the lyrics, I calculated the 'distance' between the lyrics vectors in order to find the most similar tracks of the two based on the word choice, and here is the result: Charlie Puth's Patient and Shawn Mendes' No Promises are most similar regarding word choice ('So Please Baby'vs.'Baby So Please')
+                </p>
+                
+            </div>
+        </div> 
+
+
+<div class="row justify-content-center"><!-- headline and intro -->
+            <div class="col-lg-10 ">
+                <p class="subhead super-font">They Didn't Sound Like Their Old Music, In a Good and a Bad Way.</p>
+
+                <p class="body-text sub-font">
+                I am thrilled to find audio attributes from Spotify's api, and I mapped audio attributes on two levels: albums and tracks. 
+                <p class="body-text sub-font"> On the album level, Charlie Puth has a more diverse grasp on audio production over time, a transition from <a href = "https://www.billboard.com/articles/news/magazine-feature/8097384/charlie-puth-voicenotes-interview-billboard-cover-story-2018">candy-boy-not-like-me </a><i>Nine Track Mind</i> to funk-and-R&B-fused<i>Voicenotes</i>. In an <a href = "https://www.nytimes.com/2018/05/16/arts/music/charlie-puth-voicenotes-interview.html">NYTimes interview</a>, Charlie Puth described his production of <i>Voicenotes</i> as a process of 'figure out who I was musically in front of millions of people', and he seems achieved this pretty well. However, for Shawn Mendes, his new album is probably another way around: from having edges to losing edges <a href = "https://www.nytimes.com/2018/05/23/arts/music/shawn-mendes-review.html?action=click&module=RelatedCoverage&pgtype=Article&region=Footer">NYTimes Album Review </a>described his self-titled new album as ' a collection of homeless songs for which Mr. Mendes is merely a vehicle.' Not surprisingly, the audio fingerprints well reflected the transition of both artists. While Charlie Puth's album footprints became more complex and 'messy' in the latest album, Shawn Mendes's self-titled new album has almost same audio fingerprints for most of the tracks, comparing to the wild and diverse fingerprints of his earlier albums. 
+                </p>
+            </div>
+        </div>     
+<!-- start of one size B image -->
+    <div class="row justify-content-center"> <!-- labels/deszcriptions and three charts for mobile -->
+            <div class="col-md-10"><!-- left -->
+                <p class="label super-font">A Timeline about Finding/Losing Music Identity</p>
+                <!-- <p class="label-text super-font">Patent quantity surged along with aggresive acquisition and rapid growth</p> -->
+                <img class="image" src="style/images/size_c_audio_attributes-01_final.png" alt="audio_attributes">
+                <p class="note sub-font">NOTE: The plot is based on a normalized scale of the five audio attributes.
+                <br>SOURCE: Spotify
+                </p>
+            </div>
+        </div>
+<!-- end of one size B image -->
+<div class="row justify-content-center"><!-- headline and intro -->
+            <div class="col-lg-10 ">
+               
+                <p class="body-text sub-font">
+                On a track basis, I turned the five audio attributes into an vector for each song and calculated the 'distance', audio-wise, between each songs of the two artists. The shorter the distance, the more similar the two song tracks are, audio-wise. 
+                </p>
+            </div>
+        </div>     
+<!-- start of one size B image -->
+    <div class="row justify-content-center"> <!-- labels/deszcriptions and three charts for mobile -->
+            <div class="col-md-10"><!-- left -->
+                <p class="label super-font">Proof: Some of Their Songs ARE Sound-alike </p>
+                <!-- <p class="label-text super-font">Patent quantity surged along with aggresive acquisition and rapid growth</p> -->
+                <img class="image" src="style/images/similar_tracks_final-01.png" alt="similar_tracks">
+                <p class="note sub-font">NOTE: The plot is based on a normalized scale of the five audio attributes.
+                <br>SOURCE: Spotify
+                </p>
+            </div>
+        </div>
+<!-- end of one size B image -->
+
+
+<div class="row justify-content-center"><!-- headline and intro -->
+        <div class="col-lg-10 ">
+            <p class="subhead super-font">And Their Favourite Tone: Tentative Sadness </p>
+                <p class="body-text sub-font">
+                 I used IBM's Tone Analyzer to generate both emotional tones(anger, sadness, joy, and fear) and language tones(analytical, tentative, confident) since their lyrics are very conversational and colloquial, and the result shows that the most frequently appeard emotional tone is sadness, and the most frequent appeared language tone is tentative, probably because both of them use a lot of 'hedging' in their language. 
+
+                 IBM's Tone Analyzer defined the tones as following:
+
+                 <ul class="body-text sub-font">
+                <li><strong>Anger</strong> is evoked due to injustice, conflict, humiliation, negligence, or betrayal.(emotional)</li>
+                <li><strong>Fear</strong> is a response to impending danger. It is a survival mechanism that is triggered as a reaction to some negative stimulus. Fear can be a mild caution or an extreme phobia.(emotional</li>
+                <li><strong>Joy(or happiness)</strong> has shades of enjoyment, satisfaction, and pleasure. Joy brings a sense of well-being, inner peace, love, safety, and contentment.(emotional</li>
+                <li><strong>Sadness</strong> indicates a feeling of loss and disadvantage. When a person is quiet, less energetic, and withdrawn, it can be inferred that they feel sadness.(emotional)</li>
+                <li>An <strong>analytical</strong> tone indicates a person's reasoning and analytical attitude about things.(language)</li>
+                <li>A <strong>confident</strong> tone indicates a person's reasoning and analytical attitude about things.(language)</li>
+                <li>A <strong>tentative</strong> tone indicates a person's degree of inhibition.(language)</li>
+                </ul></p>
+
+                     </div>
+        </div>
+
+<!-- start of one size B image -->
+    <div class="row justify-content-center"> <!-- labels/deszcriptions and three charts for mobile -->
+            <div class="col-md-10"><!-- left -->
+                <p class="label super-font">Lyrics Tone Analysis</p>
+                <!-- <p class="label-text super-font">Physics and Electricity patents dominate, but there's more.</p> -->
+                <img class="image" src="style/images/size_c_sentiments.png" alt="sentiments">
+                <p class="note sub-font"><!-- NOTE: an optional note or source can go here. <br> -->
+                SOURCE: Spotify
+                </p>
+            </div>
+        </div>
+<!-- end of one size B image -->
+
+
+
+
+
+
+<div class="row justify-content-center"><!-- headline and intro -->
+            <div class="col-lg-10 ">
+                <p class="subhead super-font">Go back to my
+                 <a href = "https://christina10211.github.io/"> Homepage </a></p>
+            </div>
+        </div>
+
+
+       <!--  <div class="row justify-content-center"><!-- headline and intro -->
+           <!--  <div class="col-lg-10 ">
+                <p class="body-text sub-font">
+                Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo,<br>
+                tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+                </p>
+            </div>
+        </div> -->
+
+
+
+
+<!-- 
+<!-- start of one size C image -->
+
+
+        <!-- <div class="row justify-content-center"> 
+            <div class="col-md-10">
+                <p class="label super-font">Chart label</p>
+                <p class="label-text super-font">Labels for chart should usually go above the visualization.</p>
+            </div>
+            <img class="image" src="style/images/template_size_C.png" alt="image description">
+        </div>
+        
+        <div class="row justify-content-center"><!-- headline and intro -->
+            <!-- <div class="col-lg-10 ">
+                <p class="body-text sub-font">
+                Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo,<br>
+                tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+                </p>
+            </div>
+        </div>  -->
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- <div class="row justify-content-center"> 
+            <div class="col-12">
+                <img class="image" src="style/images/swimming.jpg" alt="image description">
+            </div>
+            <div class="col-md-10">
+                <p class="caption sub-font">Photo captions are typically below the image and end with the photographer's credit (Firstname Lastname/AGENCYNAME) Boys swim at a river mouth between the river Drim and Ohrid lake in the city of Struga, Macedonia (Ognen Teofilovski/REUTERS)</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center"><!-- headline and intro --> 
+        <!-- <div class="col-lg-10 ">
+            <p class="body-text sub-font">
+            Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo,<br>
+            tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+            </p> -->
+       <!--  </div>
+        <div class="row justify-content-center no-gutters"> 
+            <div class="col-md-5">
+                <img class="image" src="style/images/size_A_treemap.png" alt="size_A_treemap">
+                <p class="caption sub-font">Photo captions are typically below the image and end with the photographer's credit (Firstname Lastname/AGENCYNAME)</p>
+            </div>
+        </div> --> 
+    
+            
+            
+    
+        
+        
+        
+        
+        
+      </div><!-- end of the main container-->
+   
+        
+
+      
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>
