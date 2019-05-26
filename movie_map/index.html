@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+      
+    <!-- Your CSS files -->
+    <link rel="stylesheet" href="style/app.css">
+    
+    <!-- google fonts: Roboto Condensed(super-font) and Lora(sub-font) -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet"> 
+  
+      
+      
+    <title>Christina Zhang's Data Studio Projects</title>
+  </head>
+    
+  <body class="beige-theme" >
+  
+
+    <div class="container"><!-- start of the main container-->
+        <div class="row justify-content-center"><!-- headline and intro -->
+            <div class="col-lg-10 ">
+                <p class="kicker super-font">Pop Culture</p>
+                <h1 class="headline super-font">100 Greatest Movies in 21st Century: An Interactive Movie Map</h1>
+               <!--  <h3 class="subhead super-font">An Analysis on Word Choices,Audio Attributes and Lyrics Tone</h3> -->
+                <p class="credit super-font">BY Christina Zhang</p>
+                <p class="date sub-font">Published August 7, 2018</p>
+                <p class="body-text sub-font">
+                BBC polled 177 critics all over the world about their favorite 10 movies in 21st century. In this project, I selected three movie genres: action, comedy, and romance, and created an interactive map based on origin conturies of movie directors with the help of mapbox and leaflet. 
+
+    <div class="container"><!-- start of the main container-->
+         <div class="row"><!-- headline and intro -->
+            <div class="col-lg-10 ">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+
+<!-- 
+THESE ARE CSS STYLES WHAT YOU SHOULD FREELY PLAY WITH
+THE STYLES THAT BEGIN WITH # RELATE TO IDS, THE ONES THAT BEGIN WITH . RELATE TO CLASSES
+WHEN YOU GOT EVERYTHING WORKING YOU CAN PLAY WITH THESE AND ADD TO THESE 
+TO MAKE YOUR FONTS AND LAYOUTS NICE AND LOVELY
+ -->
+    <style>
+
+/* HERE BEGINS THE CSS PORTION OF THE HEADER */
+/* THESE ARE WAYS OF CONTROLLING STYLE OF YOUR MAP QUITE EASILY THROUGH CSS */
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+    #map {position: absolute; top: 20px; left: 20px; width: 700px; height: 500px; z-index:1; }
+    #articlePlace {position: absolute; left: 720px; top: 5px; margin:15px; width: 300px; height: 500px; overflow: scroll;
+    overflow-x: hidden; z-index:5;} 
+    #select-menu{position: absolute; left: 80px; top: 30px;  z-index:10;} 
+.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+
+</style>
+
+
+
+<!-- THE BODY OF THE HTML BEGINS HERE -->
+<!-- 
+HERE IS MY VERY UNBEAUTIFUL BUT FUNCTIONALLY AWESOME DROP-DOWN MENU
+THE ID select–menu IS USED BY THE JQUERY FUNCTION WAY DOWN AT THE BOTTOM
+THIS HTML SETS UP THE PULLDOWN MENU
+IF YOU HAVE MULTIPLE GROUPS DID JQUERY AT THE BOTTOM 
+WILL UPDATE THE SELECT MENU FOR YOU
+ -->
+<div id="dropdown">
+<select id="select-menu">            
+ </select>
+</div>
+
+ <!-- 
+THE TWO DIVS BELOW ARE SUPER IMPORTANT:
+THEY ARE WHERE THE MAP WILL GO, AND YOUR ARTICLE TEXT WILL GO
+YOU WILL CERTAINLY WANT TO STYLE THESE, BOTH THEIR PLACEMENT AND CONTENT 
+THE MAP SHOULD BE EMPTY.
+WHATEVER INTRODUCTORY TEXT YOU WANT CAN GO INTO THE ARTICLEPLACE DIV
+ -->
+<div id='map'></div>
+<div id='articlePlace'> This is a genre analysis on the 598 movies selected by 177 critics all over the world.</div>
+
+<!-- 
+THIS IS WHERE THE BROWSER LOADS IN YOUR GEOJSON INFORMATION
+MAKING IN A JAVASCRIPT FILE .js, RATHER THAN A GEOJSON FILE
+ALLOWS YOU TO LOAD IT LOCALLY WITHOUT DEALING WITH SETTING UP SERVERS ON YOUR MACHINE.
+ -->
+
+<script type="text/javascript" src="geo-data.js"></script>
+
+
+<!-- 
+HERE BEGINS ALL THE SCRIPT THAT SETS UP THE MAP 
+ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
+ -->
+
+<script type="text/javascript">
+
+// THIS INITIALIZES THE MAP OBJECT IN A VARIABLE CALLED MAP
+// SETVIEW SET THE CENTER AND THE ZOOM LEVEL
+// AT THE BOTTOM YOU CAN DO AN AUTOMATIC SET IF YOU WANT TO CENTER AROUND YOUR SHAPES
+
+
+    //var map = L.map('map').setView([37.8, -96], 4);
+var map = L.map('map').setView([55.37, -3.43], 1);
+
+// THIS SETS THE BASE LAYER OF THE MAP -- USING BACKGROUND TILES
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+            '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        id: 'mapbox.light'
+    }).addTo(map)
+
+
+// THESE LINES ADD THE LITTLE INFO WINDOW IN THE UPPER RIGHT CORNER 
+// (YOU CAN CHANGE WHERE GOES BY EDITING THE STYLES FOR #INFO)
+// NOTE THAT "L.CONTIROL()" -- MEANS THAT THIS IS A LEAFLET METHOD
+// FOR CREATING A CONTROL WINDOW.   
+
+var info = L.control();
+
+
+    info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info');
+        this.update();
+        return this._div;
+    };
+
+    info.update = function (props) {
+        this._div.innerHTML = '<h4></h4>' +  (props ?
+            '<b>' + props.name + '</b><br />' + props.headline
+            : 'Hover over and select a country for movie details; change genre in dropdown menu ');
+    };
+
+    info.addTo(map);
+
+
+
+// HERE ARE YOUR STYLES FOR THE SHAPES--THERE'RE A LOT OF DIFFERENT CONTROLS
+// EVERYTHING THAT IS SET AS A VALUE MEANS THAT THAT'S STYLE IS FOR EVERY SINGLE POINT
+// THIS LINES:
+//          fillColor: feature.properties.color
+// SETS THE COLOR BASED ON WHAT YOU PUT IN YOUR GEOJSON DOC "color:"
+// YOU COULD THEORETICALLY DO THAT FOR EVERY SINGLE ONE OF THE STYLES
+
+    function style(feature) {
+        return {
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7,
+            fillColor: feature.properties.color
+        };
+    }
+
+// THIS FUNCTION CONTROLS WHAT HAPPENS WHEN YOU HOVER OVER A SHAPE
+// IT CHANGES SOME OF THE STYLES (HIGHLIGHTING THAT SHAPE)
+// AND IT ALSO UPDATES THE TEXT INSIDE THE headline INFOBOX
+
+    function highlightFeature(e) {
+        var layer = e.target;
+
+        layer.setStyle({
+            weight: 5,
+            color: '#666',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+        }
+
+        info.update(layer.feature.properties);
+    }
+
+// THIS FUNCTION CHANGES THE ARTICLE TEXT ON THE RIGHT SIDE OF THE PAGE
+// IT IS CALLED WHENEVER YOU CLICK ON A SHAPE
+
+    function updateArticle(e) {
+        var layer = e.target;
+        var props = layer.feature.properties;
+        var articleDIV = document.getElementById("articlePlace");
+        articleDIV.innerHTML = props.article
+    }
+
+
+// THIS PART IS A LITTLE COMPLICATED
+// IT IS CREATING A LAYER FOR YOUR MAP CALLED geojson
+// IT IS SETTING ALL OF THE ACTIONS THAT ARE GOING TO HAPPEN WHEN YOU HOVER AND CLICK ON YOUR POINTS
+// IT CONTROLS ROLLOVERS, CLICKS, AND CHANGES IN THOSE
+
+
+    var geojson;
+
+    function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+        info.update();
+    }
+
+    function zoomToFeature(e) {
+        map.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: updateArticle
+        });
+    }
+// HERE IT IS LOADING YOUR GEOJSON DOCUMENT INTO THAT OBJECT
+    geojson = L.geoJson(infoData, {
+        style: style,
+        onEachFeature: onEachFeature
+    }).addTo(map);
+
+// THIS IS A SPECIAL PIECE OF CODE THAT CHECKS GROUP IDS 
+// SO THAT TWO LAYERS ARE NOT STOCKED ON EACH OTHER
+        geojson.eachLayer(function (layer) {
+         if (layer.feature.properties.group_id > 0) {
+            // If the layer's id is different from the selected one, remove it from the map
+            map.removeLayer(layer);
+            }
+        });
+
+
+
+// THIS IS FROM LEAFLETS TEMPLATE FOR THAT UGLY COLOR KEY IN THE RIGHT CORNER
+// YOU MIGHT WANT TO MODIFY IT
+
+    //map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+    function getColor(d) {
+        return d > 1000 ? '#800026' :
+                d > 500  ? '#BD0026' :
+                d > 200  ? '#E31A1C' :
+                d > 100  ? '#FC4E2A' :
+                d > 50   ? '#FD8D3C' :
+                d > 20   ? '#FEB24C' :
+                d > 10   ? '#FED976' :
+                            '#FFEDA0';
+    }
+
+    var legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function (map) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+            labels = [],
+            from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+            from = grades[i];
+            to = grades[i + 1];
+
+            labels.push(
+                '<i style="background:' + getColor(from + 1) + '"></i> ' +
+                from + (to ? '&ndash;' + to : '+'));
+        }
+
+        div.innerHTML = labels.join('<br>');
+        return div;
+    };
+
+    //legend.addTo(map);
+// THIS WILL CENTER THE MAP FOR YOU, BUT IT CAN BE PROBLEMATIC DEPENDING ON YOUR SHAPES
+//map.fitBounds(points.getBounds(), {padding: [120,120]});
+
+
+// FINALLY, THIS INITIALIZES THE DYNAMIC OBJECT FOR GROUPS
+// SEE THE JQUERY BELOW FOR THE UPDATING OF GROUPS
+    var groupsObj = {};
+
+
+</script>
+
+<script>
+    $(document).ready(function () {
+// THIS ENTIRE FUNCTION CONTROLS EVERYTHING FOR THE DROP DOWN MENU
+// HERE IT DYNAMICALLY UPDATES YOUR GROUPS IF YOU HAVE THEM
+            geojson.eachLayer(function (layer) {
+            groupsObj[layer.feature.properties.group_id] = layer.feature.properties.group_name;
+            })
+            
+        $.each(groupsObj, function(key, value) {   
+         $('#select-menu')
+             .append($("<option></option>")
+                        .attr("value",key)
+                        .text(value)); 
+            });
+    
+// HERE IT UPDATES WHAT'S DISPLAYED WHEN THE DROP-DOWN MENU IS CHANGED
+        $('#select-menu').change(function () {
+        var selectedGroup = $('#select-menu').val();
+        
+        geojson.eachLayer(function (layer) {
+            if (layer.feature.properties.group_id == selectedGroup)
+             {
+                map.addLayer(layer);
+            } else {
+            // If the layer's id is different from the selected one, remove it from the map
+            map.removeLayer(layer);
+            }
+        });
+
+    });
+    });
+
+
+</script>
+</script>  
+
+
+
+      
+  </body>
+</html>
